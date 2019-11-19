@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openam-deployment
+  labels:
+    app: openam
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: openam
+  template:
+    metadata:
+      labels:
+        app: openam
+    spec:
+      containers:
+      - name: openam
+        image: openidentityplatform/openam:14.4.1
+        ports:
+        - containerPort: 8080

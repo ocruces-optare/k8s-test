@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: openam-lb-service
+spec:
+  selector:
+    app: openam
+  ports:
+  - protocol: TCP
+    port: 33080
+    targetPort: 80
+  type: NodePort
